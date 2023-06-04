@@ -1,43 +1,15 @@
 package com.example.circlediagram_
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.circlediagram_.ui.theme.CircleDiagram_Theme
 
-class MainActivity : ComponentActivity() {
+
+import android.app.Activity
+
+class MainActivity: Activity() {
+    lateinit var circleDiagram: CircleDiagramView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            CircleDiagram_Theme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    CircleDiagram_Theme {
-        Greeting("Android")
+        circleDiagram = CircleDiagramView(this)
+        setContentView(circleDiagram)
     }
 }
